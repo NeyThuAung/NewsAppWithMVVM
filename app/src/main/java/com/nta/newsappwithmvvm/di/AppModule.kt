@@ -1,7 +1,9 @@
 package com.nta.newsappwithmvvm.di
 
+import android.app.Application
 import com.nta.newsappwithmvvm.data.remote.NewsAPI
 import com.nta.newsappwithmvvm.data.repository.NewsRepositoryImpl
+import com.nta.newsappwithmvvm.db.ArticleDatabase
 import com.nta.newsappwithmvvm.domain.repository.NewsRepository
 import com.nta.newsappwithmvvm.utils.Constants.Companion.BASE_URL
 import dagger.Module
@@ -37,9 +39,14 @@ object AppModule {
     @Provides
     @Singleton
     fun provideNewsRepository(
-        newsApi: NewsAPI
+        newsApi: NewsAPI,
+        articleDatabase: ArticleDatabase
     ): NewsRepository {
-        return NewsRepositoryImpl(newsApi)
+        return NewsRepositoryImpl(newsApi,articleDatabase)
     }
+
+    @Provides
+    @Singleton
+    fun provideArticleDatabase(application: Application): ArticleDatabase = ArticleDatabase(application)
 
 }

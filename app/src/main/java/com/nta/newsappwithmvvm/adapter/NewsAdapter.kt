@@ -1,33 +1,47 @@
 package com.nta.newsappwithmvvm.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.nta.newsappwithmvvm.R
 import com.nta.newsappwithmvvm.modals.Article
 import com.nta.newsappwithmvvm.databinding.ItemArticlePreviewBinding
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
+class NewsAdapter(
+    private val onItemClickListener: OnItemClickListener
+) : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
-    inner class ArticleViewHolder(private val binding: ItemArticlePreviewBinding) : RecyclerView.ViewHolder(binding.root){
+    interface OnItemClickListener {
+        fun onItemClick(article: Article)
+    }
 
-        fun bind(article : Article){
+    inner class ArticleViewHolder(private val binding: ItemArticlePreviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-            Glide.with(this.itemView).load(article.urlToImage).into(binding.ivArticleImage)
+        fun bind(article: Article) {
+
+            Glide.with(this.itemView)
+                .load(article.urlToImage)
+                .placeholder(R.color.blue_500)
+                .into(binding.ivArticleImage)
 
             binding.tvTitle.text = article.title
-            binding.tvSource.text = article.source.name
+            binding.tvSource.text = article.source?.name
             binding.tvDescription.text = article.description
             binding.tvPublishedAt.text = article.publishedAt
 
-            binding.root.setOnClickListener{
-                setOnClickListener {
-                    onItemClickListener?.let {
-                        it(article)
-                    }
-                }
+            binding.root.setOnClickListener {
+                Log.d("HKHJHK", "bind: ")
+//                setOnClickListener {
+//                    onItemClickListener?.let {
+//                        it(article)
+//                    }
+//                }
+                onItemClickListener.onItemClick(article)
             }
         }
 
@@ -45,7 +59,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
     }
 
     //calculate the differ and this is list
-    val differ = AsyncListDiffer(this,diffCallback)
+    val differ = AsyncListDiffer(this, diffCallback)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
 //        return ArticleViewHolder(
@@ -73,9 +87,9 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
         holder.bind(article)
     }
 
-    private var onItemClickListener : ((Article) -> Unit) ?= null
-
-    fun setOnClickListener(listener : (Article) -> Unit){
-        onItemClickListener = listener
-    }
+//     var onItemClickListener : ((Article) -> Unit) ?= null
+//
+//    fun setOnClickListener(listener : (Article) -> Unit){
+//        onItemClickListener = listener
+//    }
 }

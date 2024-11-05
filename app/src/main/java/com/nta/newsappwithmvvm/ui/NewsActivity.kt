@@ -33,15 +33,18 @@ class NewsActivity : AppCompatActivity() {
         binding = ActivityNewsBinding.inflate(layoutInflater, null, false)
         setContentView(binding.root)
 
+        //Initialize NavController using NavHostFragment
         setSupportActionBar(binding.toolbar)
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
 
+        // Set up BottomNavigationView with NavController
         val navView: BottomNavigationView = binding.bottomNavigationView
         navView.setupWithNavController(navController)
         navView.itemIconTintList = null
 
+        // Configure AppBar with NavController
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
@@ -60,38 +63,6 @@ class NewsActivity : AppCompatActivity() {
             }
             true
         }
-
-
-//        // Set up toolbar
-//        setSupportActionBar(binding.toolbar)
-//
-//        // Initialize NavController using NavHostFragment
-//        val navHostFragment = supportFragmentManager
-//            .findFragmentById(R.id.fragmentContainer) as NavHostFragment
-//        navController = navHostFragment.navController
-//
-//        // Set up BottomNavigationView with NavController
-//        val navView: BottomNavigationView = binding.bottomNavigationView
-//        navView.setupWithNavController(navController)
-//
-//        // Configure AppBar with NavController
-//        val appBarConfiguration = AppBarConfiguration(
-//            setOf(R.id.breakingNewsFragment, R.id.savedNewsFragment, R.id.searchNewsFragment)
-//        )
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-//
-//        // Add logging to verify NavController setup
-//        Log.d("NewsActivity", "NavController initialized: $navController")
-//
-//        // Handle BottomNavigationView item selection if needed
-//        navView.setOnItemSelectedListener { item ->
-//            when (item.itemId) {
-//                R.id.breakingNewsFragment -> navController.navigate(R.id.breakingNewsFragment)
-//                R.id.savedNewsFragment -> navController.navigate(R.id.savedNewsFragment)
-//                R.id.searchNewsFragment -> navController.navigate(R.id.searchNewsFragment)
-//            }
-//            true
-//        }
 
     }
 
