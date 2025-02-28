@@ -15,7 +15,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
-import com.nta.newsappmvvm.util.Resource
+import com.nta.newsappwithmvvm.utils.Resource
 import com.nta.newsappwithmvvm.R
 import com.nta.newsappwithmvvm.adapter.NewsAdapter
 import com.nta.newsappwithmvvm.databinding.FragmentBreakingNewsBinding

@@ -1,4 +1,4 @@
-package com.nta.newsappmvvm.util
+package com.nta.newsappwithmvvm.utils
 
 sealed class Resource<T>(
     val data: T ?= null,

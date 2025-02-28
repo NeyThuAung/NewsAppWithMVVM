@@ -1,5 +1,5 @@
 [versions]
-agp = "8.5.1"
+agp = "8.5.2"
 kotlin = "1.9.0"
 coreKtx = "1.13.1"
 junit = "4.13.2"
@@ -21,8 +21,8 @@ hilt = "2.48"
 hiltLifecycleViewModel = "1.0.0-alpha03"
 hiltCompiler = "1.2.0"
 hiltNavigationCompose = "1.2.0"
-fragment = "1.6.1" # Use the latest stable version available
-hilt_navigation = "1.0.0" # Hilt navigation fragment version
+fragment = "1.6.1"
+hilt_navigation = "1.0.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -61,4 +61,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+android-library = { id = "com.android.library", version.ref = "agp" }
 

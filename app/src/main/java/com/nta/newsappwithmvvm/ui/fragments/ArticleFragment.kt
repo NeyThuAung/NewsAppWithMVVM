@@ -21,7 +21,6 @@ class ArticleFragment : Fragment() {
     private lateinit var binding: FragmentArticleBinding
     private val newsViewModel : NewsViewModel by activityViewModels()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,4 +46,5 @@ class ArticleFragment : Fragment() {
         }
 
     }
+    
 }

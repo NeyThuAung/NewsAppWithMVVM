@@ -15,13 +15,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.nta.newsappmvvm.util.Resource
+import com.nta.newsappwithmvvm.utils.Resource
 import com.nta.newsappwithmvvm.R
 import com.nta.newsappwithmvvm.adapter.NewsAdapter
 import com.nta.newsappwithmvvm.databinding.FragmentSearchNewsBinding
 import com.nta.newsappwithmvvm.modals.Article
 import com.nta.newsappwithmvvm.ui.NewsViewModel
-import com.nta.newsappwithmvvm.utils.Constants
 import com.nta.newsappwithmvvm.utils.Constants.Companion.QUERY_PAGE_SIZE
 import com.nta.newsappwithmvvm.utils.Constants.Companion.SEARCH_NEWS_TIME_DELAY
 import kotlinx.coroutines.Job

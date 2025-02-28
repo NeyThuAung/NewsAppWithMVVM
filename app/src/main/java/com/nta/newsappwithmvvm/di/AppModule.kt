@@ -42,11 +42,12 @@ object AppModule {
         newsApi: NewsAPI,
         articleDatabase: ArticleDatabase
     ): NewsRepository {
-        return NewsRepositoryImpl(newsApi,articleDatabase)
+        return NewsRepositoryImpl(newsApi, articleDatabase)
     }
 
     @Provides
     @Singleton
-    fun provideArticleDatabase(application: Application): ArticleDatabase = ArticleDatabase(application)
+    fun provideArticleDatabase(application: Application): ArticleDatabase =
+        ArticleDatabase(application)
 
 }

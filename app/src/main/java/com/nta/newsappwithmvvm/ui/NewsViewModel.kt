@@ -13,10 +13,9 @@ import android.os.Build
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nta.newsappwithmvvm.modals.NewsResponse
-import com.nta.newsappmvvm.util.Resource
+import com.nta.newsappwithmvvm.utils.Resource
 import com.nta.newsappwithmvvm.MyApplication
 import com.nta.newsappwithmvvm.domain.repository.NewsRepository
 import com.nta.newsappwithmvvm.modals.Article
@@ -57,7 +56,7 @@ class NewsViewModel @Inject constructor(
     }
 
 
-    private fun handleBreakingNewsResponse(response : retrofit2.Response<NewsResponse>) : Resource<NewsResponse>{
+    private fun handleBreakingNewsResponse(response : retrofit2.Response<NewsResponse>) : Resource<NewsResponse> {
         if (response.isSuccessful){
             response.body()?.let { resultResponse ->
                 breakingNewsPage++
@@ -75,7 +74,7 @@ class NewsViewModel @Inject constructor(
         return Resource.Error(response.message())
     }
 
-    private fun handleSearchResponse(response : retrofit2.Response<NewsResponse>) : Resource<NewsResponse>{
+    private fun handleSearchResponse(response : retrofit2.Response<NewsResponse>) : Resource<NewsResponse> {
         if (response.isSuccessful){
             response.body()?.let { resultResponse ->
                 searchNewsPage++
