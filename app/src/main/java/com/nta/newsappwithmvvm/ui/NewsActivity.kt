@@ -59,7 +59,7 @@ class NewsActivity : AppCompatActivity() {
 
         checkNfcStatusAndPrompt()
         handleNfcIntent(intent)
-        intent.data.getQueryParameter()
+//        intent.data!!.getQueryParameter()
         // Get the default NFC adapter
         nfcAdapter = NfcAdapter.getDefaultAdapter(this)
         pendingIntent = PendingIntent.getActivity(
